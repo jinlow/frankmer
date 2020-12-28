@@ -25,6 +25,7 @@ fn main() -> Result<()> {
     // t.countdown()?;
 
     // println!("Real time: {:?}", start.elapsed());
+
     let tm = App::new("TeaTicker")
         .setting(clap::AppSettings::ArgRequiredElseHelp)
         // .author("James Inlow, james.d.inlow@gmail.com")
@@ -58,7 +59,8 @@ fn main() -> Result<()> {
                 .short('S')
                 .value_name("N_SECONDS")
                 .about("The number of seconds to start the timer with."),
-        ).get_matches();
+        )
+        .get_matches();
 
     let time_vals: Vec<&str> = tm.values_of("time").unwrap_or_default().collect();
 
