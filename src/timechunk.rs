@@ -48,15 +48,4 @@ impl TimeChunk {
         stdo.queue(cursor::RestorePosition)?.flush()?;
         Ok(())
     }
-
-    // fn subtract_duration(&mut self, duration: Duration) {
-    //     self.duration = self.duration - duration;
-    // }
-
-    // fn to_terminal_line(&self, mut stdo: &Stdout) -> Result<()> {
-    //     stdo.queue(cursor::SavePosition)?
-    //         .write(self.to_hms_string().as_bytes())?;
-    //     stdo.queue(cursor::RestorePosition)?.flush()?;
-    //     Ok(())
-    // }
 }
