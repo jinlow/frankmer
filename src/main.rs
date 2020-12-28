@@ -21,7 +21,7 @@ For example passing:
 
 fn main() -> Result<()> {
     // let start = time::Instant::now();
-    // let mut t = timer::Timer::new(0, 0, 1);
+    // let mut t = timer::Timer::new(0, 0, 2);
     // t.countdown()?;
 
     // println!("Real time: {:?}", start.elapsed());
