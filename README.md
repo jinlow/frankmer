@@ -34,6 +34,9 @@ For example:
 Will initialize the timer with 5 minutes and 30 seconds.
 
 Simply running the command `teaticker` without any arguments will print out the help for the command.
+```bash
+> teaticker
+```
 ```
 TeaTicker 0.1.0
 A simple timer for the command line.
