@@ -1,5 +1,4 @@
-use crossterm::terminal::ClearType;
-use crossterm::{cursor, terminal, QueueableCommand, Result};
+use crossterm::{cursor, terminal, terminal::ClearType, QueueableCommand, Result};
 use std::cmp;
 use std::io::{Stdout, Write};
 use std::time;

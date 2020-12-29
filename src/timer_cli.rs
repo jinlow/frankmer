@@ -1,12 +1,12 @@
-use crossterm::{Result, style, QueueableCommand};
-use std::{io::stdout};
+use crossterm::{style, QueueableCommand, Result};
+use std::io::stdout;
 use std::io::Write;
 
 use clap::{self, ArgMatches};
 use clap::{App, Arg};
 use regex::Regex;
 
-use crate::timer;
+use crate::timer::Timer;
 
 static TIME_HELP: &'static str = "The time used to initialize the timer with.
 This must be the time separated by spaces describing the
@@ -40,7 +40,7 @@ impl TimeCLI {
         self.gen_user_interface();
 
         if self.non_empty() {
-            let mut t = timer::Timer::new(self.hours, self.minutes, self.seconds);
+            let mut t = Timer::new(self.hours, self.minutes, self.seconds);
             t.countdown()?;
         } else {
             let mut stdo = stdout();
@@ -117,9 +117,9 @@ impl TimeCLI {
         if matches.is_present("time") {
             // Create the hours, minutes and seconds regular expressions we will
             // use to search the time values of.
-            let re_h = Regex::new(r"(\d+)h$").unwrap();
-            let re_m = Regex::new(r"(\d+)m$").unwrap();
-            let re_s = Regex::new(r"(\d+)s$").unwrap();
+            let re_h = Regex::new(r"^(\d+)h$").unwrap();
+            let re_m = Regex::new(r"^(\d+)m$").unwrap();
+            let re_s = Regex::new(r"^(\d+)s$").unwrap();
 
             let time_vals: Vec<&str> = matches.values_of("time").unwrap_or_default().collect();
 
@@ -146,7 +146,7 @@ fn get_flag_arg(matches: &ArgMatches, id: &str) -> u64 {
 fn get_time_arg(time_matches: &Vec<&str>, search_re: Regex) -> u64 {
     let val_match = time_matches.iter().find(|&&a| search_re.is_match(a));
     let arg = match val_match {
-        // We know we can unwrap here because of None is not returned we have captured
+        // We know we can unwrap here because if None is not returned, we have captured
         // at least 1 group.
         Some(m) => search_re.captures(m).unwrap().get(1).unwrap().as_str(),
         None => "0",

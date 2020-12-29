@@ -38,7 +38,6 @@ impl Timer {
                 // we never will end up with a negative duration.
                 if self.time.duration >= current_time.elapsed() {
                     let print_time = self.time.duration - current_time.elapsed();
-                    // timechunk::TimeChunk::new(print_time).to_terminal_line(&stdo)?;
                     TimeChunk::new(print_time).print_timetext(&stdo, &mut timetext)?;
                 }
             }
@@ -47,12 +46,4 @@ impl Timer {
         println!("");
         Ok(())
     }
-
-    // fn count_one_second(&self, mut stdo: &Stdout) -> Result<()> {
-    //     stdo.queue(cursor::SavePosition)?
-    //         .write(self.time.to_hms_string().as_bytes())?;
-    //     stdo.queue(cursor::RestorePosition)?.flush()?;
-    //     thread::sleep(time::Duration::from_secs(1));
-    //     Ok(())
-    // }
 }
