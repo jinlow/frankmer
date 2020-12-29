@@ -1,4 +1,4 @@
-use crossterm::Result;
+use crossterm::{cursor, terminal, QueueableCommand, Result};
 use figlet_rs::FIGfont;
 use std::io::{stdout, Write};
 use std::{thread, time};
@@ -42,7 +42,9 @@ impl Timer {
                 }
             }
         }
-        stdo.flush()?;
+        stdo.queue(cursor::MoveTo(0, 0))?
+            .queue(terminal::Clear(terminal::ClearType::All))?
+            .flush()?;
         println!("");
         Ok(())
     }

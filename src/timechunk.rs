@@ -40,11 +40,11 @@ impl TimeChunk {
         let timetext_edge = (term_shape.0.saturating_sub(timetext.text_length()) / 2) as usize;
         let timetext_height = term_shape.1.saturating_sub(timetext.text_height()) / 2;
 
-        stdo.queue(cursor::MoveTo(0, timetext_height))?
-            .queue(terminal::Clear(ClearType::All))?;
+        stdo.queue(terminal::Clear(ClearType::All))?
+            .queue(cursor::MoveTo(0, timetext_height))?;
 
         stdo.write(timetext.pad_left_right(" ", timetext_edge).as_bytes())?;
-        stdo.queue(cursor::RestorePosition)?.flush()?;
+        stdo.queue(cursor::MoveTo(0, 0))?.flush()?;
         Ok(())
     }
 }
