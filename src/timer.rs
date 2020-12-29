@@ -42,6 +42,9 @@ impl Timer {
                 }
             }
         }
+
+        // Swipe the terminal one last time, and move the cursor to back to the
+        // beginning of the terminal window.
         stdo.queue(cursor::MoveTo(0, 0))?
             .queue(terminal::Clear(terminal::ClearType::All))?
             .flush()?;
