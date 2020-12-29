@@ -1,5 +1,5 @@
 use crossterm::{Result, style, QueueableCommand};
-use std::{time, io::stdout};
+use std::{io::stdout};
 use std::io::Write;
 
 use clap::{self, ArgMatches};
@@ -63,33 +63,33 @@ impl TimeCLI {
             .version("0.1.0")
             .about("A simple timer for the command line.")
             .arg(
-                Arg::new("time")
+                Arg::with_name("time")
                     .multiple(true)
                     .value_delimiter(" ")
                     .max_values(3)
-                    .long_about(TIME_HELP)
+                    .long_help(TIME_HELP)
                     .index(1),
             )
             .arg(
-                Arg::new("hours")
+                Arg::with_name("hours")
                     .long("hour")
-                    .short('H')
+                    .short("H")
                     .value_name("N_HOURS")
-                    .about("The number of hours to start the timer with."),
+                    .help("The number of hours to start the timer with."),
             )
             .arg(
-                Arg::new("minutes")
+                Arg::with_name("minutes")
                     .long("minutes")
-                    .short('M')
+                    .short("M")
                     .value_name("N_MINUTES")
-                    .about("The number of minutes to start the timer with."),
+                    .help("The number of minutes to start the timer with."),
             )
             .arg(
-                Arg::new("seconds")
+                Arg::with_name("seconds")
                     .long("seconds")
-                    .short('S')
+                    .short("S")
                     .value_name("N_SECONDS")
-                    .about("The number of seconds to start the timer with."),
+                    .help("The number of seconds to start the timer with."),
             )
             .get_matches();
 
