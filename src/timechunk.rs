@@ -31,7 +31,14 @@ impl TimeChunk {
         let hours = (dsecs / 60) / 60;
         let minutes = (dsecs / 60) % 60;
         let seconds = dsecs % 60;
-        format!("{:0>2}h {:0>2}m {:0>2}s", hours, minutes, seconds)
+        if hours > 0 {
+            format!("{:0>2}h {:0>2}m {:0>2}s", hours, minutes, seconds)
+        } else if minutes > 0 {
+            format!("{:0>2}m {:0>2}s", minutes, seconds)
+        } else {
+            format!("{:0>2}s", seconds)
+        }
+        
     }
 
     pub fn print_timetext(&self, mut stdo: &Stdout, timetext: &mut TimeText) -> Result<()> {

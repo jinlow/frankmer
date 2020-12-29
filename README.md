@@ -12,7 +12,7 @@ cargo install --git https://github.com/jinlow/teaticker.git --branch main
 
 ## API
 
-After installing the easiest way to use the application is running `teaticker` in the terminal with the time shortcut commands. These should be passed as integer values, prefixed with either "h", "m", or "s" to specify the hours, minutes, or seconds to initialize the timer with. For example:
+After installation, the easiest way to use the application is running `teaticker` in the terminal with the time shortcut commands. These should be passed as integer values, prefixed with either "h", "m", or "s" to specify the hours, minutes, or seconds to initialize the timer with. For example:
 
 ```bash
 > teaticker 1h 10m 24s
