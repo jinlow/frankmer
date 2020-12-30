@@ -8,6 +8,7 @@
 
 # Frankmer
 ## Frank + Timer = "frankmer"
+
 ![terminal](resources/timer_image_terminal.png)
 A simple command line timer built with Rust, inspired by Frank the rabbit (or more accurately, the a man in a stupid bunny suit), from the film "Donnie Darko".  
 Frank + timer = "frankmer"...
@@ -77,3 +78,18 @@ ARGS:
                      - 'frankmer 3m': Start the timer with 3 minutes.
 
 ```
+
+## Goals
+A few things I would like to add...
+  - [ ] Styling of timer output in the terminal. This could possibly be handled y a ".config" file.
+  - [ ] Add option to open a new window, with the timer
+  option so that you could continue to use the terminal.
+
+## Also..
+> Donnie: "Why do they call you Frank?" 
+>
+> Frank: "It is the name of my father… and his father before me."
+
+> Donnie Darko: "Why do you wear that stupid bunny suit?"
+>
+> Frank: "Why are you wearing that stupid man suit?" 
