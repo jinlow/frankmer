@@ -1,4 +1,4 @@
-<p align="center"><img src="resources/frankmer_logo.png" width="73%"></p>
+<p align="center"><img src="resources/frankmer_logo.png" width="65%"></p>
 
 >"28 days, 6 hours, 42 minutes, 12 seconds. That is when the world will end."
 >
