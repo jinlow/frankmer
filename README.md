@@ -1,5 +1,4 @@
-![frank](resources/frankmer_logo.png)
-
+<img src="resources/frankmer_logo.png" width="80%">
 
 >"28 days, 6 hours, 42 minutes, 12 seconds. That is when the world will end."
 >
