@@ -1,27 +1,37 @@
-# TeaTicker
-![terminal](resources/timer_image_terminal.png)
+![frank](resources/frankmer_logo.png)
 
-A simple command line timer built with Rust. As the name suggests, the primary use of this project is timing how long my tea has steeped for...
+
+>"28 days, 6 hours, 42 minutes, 12 seconds. That is when the world will end."
+>
+> -- <cite>Frank the Rabbit</cite>
+
+
+
+# Frankmer
+## Frank + Timer = "frankmer"
+![terminal](resources/timer_image_terminal.png)
+A simple command line timer built with Rust, inspired by Frank the rabbit (or more accurately, the a man in a stupid bunny suit), from the film "Donnie Darko".  
+Frank + timer = "frankmer"...
 
 It uses FIGlet fonts, and the standard library `time` package for the timings, and then the fabulous `crossterm` and `clap` Crates for the CLI and terminal handling.
 
 ## Installation
-The easiest way to install TeaTicker is to use cargo, and install it directly from github.
+The easiest way to install Frankmer is to use cargo, and install it directly from github.
 ```bash
-cargo install --git https://github.com/jinlow/teaticker.git --branch main
+cargo install --git https://github.com/jinlow/frankmer.git --branch main
 ```
 
 ## API
 
-After installation, the easiest way to use the application is running `teaticker` in the terminal with the time shortcut commands. These should be passed as integer values, prefixed with either "h", "m", or "s" to specify the hours, minutes, or seconds to initialize the timer with. For example:
+After installation, the easiest way to use the application is running `frankmer` in the terminal with the time shortcut commands. These should be passed as integer values, prefixed with either "h", "m", or "s" to specify the hours, minutes, or seconds to initialize the timer with. For example:
 
 ```bash
-> teaticker 1h 10m 24s
+> frankmer 1h 10m 24s
 ```
 Will start the timer with 1 hour, 10 minutes and 24 seconds.
 
 ```bash
-> teaticker 3m
+> frankmer 3m
 ```
 
 Will start the timer with 3 minutes.
@@ -29,20 +39,20 @@ Will start the timer with 3 minutes.
 Optionally, the flags `-H`, `-M`, or `-S` can be passed followed by an integer value to specify hours, minutes or seconds to initialize the timer with respectively. 
 For example:
 ```bash
-> teaticker -M 5 -S 30
+> frankmer -M 5 -S 30
 ```
 Will initialize the timer with 5 minutes and 30 seconds.
 
-Simply running the command `teaticker` without any arguments will print out the help for the command.
+Simply running the command `frankmer` without any arguments will print out the help for the command.
 ```bash
-> teaticker
+> frankmer
 ```
 ```
-TeaTicker 0.1.0
+frankmer 0.1.0
 A simple timer for the command line.
 
 USAGE:
-    teaticker [OPTIONS] [time]...
+    frankmer [OPTIONS] [time]...
 
 FLAGS:
     -h, --help       Prints help information
@@ -63,8 +73,8 @@ ARGS:
                  '--seconds' flags must be set. Refer to the help for these options for
                  more details.
                  For example passing:
-                     - 'teaticker 1h 10m 24s': Start the timer with one hour,
+                     - 'frankmer 1h 10m 24s': Start the timer with one hour,
                                                10 minutes and 24 seconds.
-                     - 'teaticker 3m': Start the timer with 3 minutes.
+                     - 'frankmer 3m': Start the timer with 3 minutes.
 
 ```

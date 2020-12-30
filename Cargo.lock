@@ -94,6 +94,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "59893843a423e9726b35a3110cd2be573bc9deddc553b0ff286107189b02d1aa"
 
 [[package]]
+name = "frankmer"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "crossterm",
+ "figlet-rs",
+ "regex",
+]
+
+[[package]]
 name = "hermit-abi"
 version = "0.1.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -276,16 +286,6 @@ name = "strsim"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ea5119cdb4c55b55d432abb513a0429384878c15dde60cc77b1c99de1a95a6a"
-
-[[package]]
-name = "teaticker"
-version = "0.1.0"
-dependencies = [
- "clap",
- "crossterm",
- "figlet-rs",
- "regex",
-]
 
 [[package]]
 name = "textwrap"

@@ -17,9 +17,9 @@ If this is not set, at least one of the '--hour', '--minutes' or
 '--seconds' flags must be set. Refer to the help for these options for
 more details.
 For example passing:
-    - 'teaticker 1h 10m 24s': Start the timer with one hour,
+    - 'frankmer 1h 10m 24s': Start the timer with one hour,
                               10 minutes and 24 seconds.
-    - 'teaticker 3m': Start the timer with 3 minutes.";
+    - 'frankmer 3m': Start the timer with 3 minutes.";
 
 pub struct TimeCLI {
     pub hours: u64,
@@ -48,7 +48,7 @@ impl TimeCLI {
             stdo.write("Error: ".as_bytes())?;
             stdo.queue(style::ResetColor)?;
             stdo.write(
-                "Unable to parse inputs, please refer to the help by running 'teaticker --help'."
+                "Unable to parse inputs, please refer to the help by running 'frankmer --help'."
                     .as_bytes(),
             )?;
             stdo.flush()?;
@@ -57,7 +57,7 @@ impl TimeCLI {
     }
 
     fn gen_user_interface(&mut self) {
-        let tm = App::new("TeaTicker")
+        let tm = App::new("Frankmer")
             .setting(clap::AppSettings::ArgRequiredElseHelp)
             // .author("James Inlow, james.d.inlow@gmail.com")
             .version("0.1.0")
