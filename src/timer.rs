@@ -1,6 +1,6 @@
-use crossterm::{cursor, terminal, QueueableCommand, Result};
+use crossterm::{Result};
 use figlet_rs::FIGfont;
-use std::io::{stdout, Write};
+use std::io::{stdout};
 use std::{thread, time};
 use thread::sleep;
 
@@ -19,7 +19,7 @@ impl Timer {
     }
 
     pub fn countdown(&mut self) -> Result<()> {
-        let mut stdo = stdout();
+        let stdo = stdout();
 
         let font_string = std::include_str!("../resources/colossal.flf");
         let thick_font = FIGfont::from_content(font_string).unwrap();
@@ -45,10 +45,7 @@ impl Timer {
 
         // Swipe the terminal one last time, and move the cursor to back to the
         // beginning of the terminal window.
-        stdo.queue(cursor::MoveTo(0, 0))?
-            .queue(terminal::Clear(terminal::ClearType::All))?
-            .flush()?;
-        println!("");
+        TimeChunk::wipe_terminal(&stdo)?;
         Ok(())
     }
 }

@@ -1,5 +1,5 @@
 use crossterm::{cursor, terminal, terminal::ClearType, QueueableCommand, Result};
-use std::cmp;
+use std::{cmp};
 use std::io::{Stdout, Write};
 use std::time;
 use time::Duration;
@@ -52,6 +52,14 @@ impl TimeChunk {
 
         stdo.write(timetext.pad_left_right(" ", timetext_edge).as_bytes())?;
         stdo.queue(cursor::MoveTo(0, 0))?.flush()?;
+        Ok(())
+    }
+
+    pub fn wipe_terminal(mut stdo: &Stdout) -> Result<()>{
+        stdo.queue(cursor::MoveTo(0, 0))?
+        .queue(terminal::Clear(terminal::ClearType::All))?
+        .flush()?;
+        println!("");
         Ok(())
     }
 }
