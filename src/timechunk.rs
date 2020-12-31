@@ -1,5 +1,5 @@
-use crossterm::{cursor, terminal, terminal::ClearType, QueueableCommand, Result};
-use std::{cmp};
+use crossterm::{cursor, style, terminal, terminal::ClearType, QueueableCommand, Result};
+use std::cmp;
 use std::io::{Stdout, Write};
 use std::time;
 use time::Duration;
@@ -36,9 +36,8 @@ impl TimeChunk {
         } else if minutes > 0 {
             format!("{:0>2}m {:0>2}s", minutes, seconds)
         } else {
-            format!("{:0>2}s", seconds)
+            format!("{}s", seconds)
         }
-        
     }
 
     pub fn print_timetext(&self, mut stdo: &Stdout, timetext: &mut TimeText) -> Result<()> {
@@ -50,15 +49,22 @@ impl TimeChunk {
         stdo.queue(terminal::Clear(ClearType::All))?
             .queue(cursor::MoveTo(0, timetext_height))?;
 
-        stdo.write(timetext.pad_left_right(" ", timetext_edge).as_bytes())?;
+        if self.duration <= Duration::from_secs(5) {
+            stdo.queue(style::SetForegroundColor(style::Color::Red))?
+                .write(timetext.pad_left_right(" ", timetext_edge).as_bytes())?;
+            stdo.queue(style::ResetColor)?;
+        } else {
+            stdo.write(timetext.pad_left_right(" ", timetext_edge).as_bytes())?;
+        }
+
         stdo.queue(cursor::MoveTo(0, 0))?.flush()?;
         Ok(())
     }
 
-    pub fn wipe_terminal(mut stdo: &Stdout) -> Result<()>{
+    pub fn wipe_terminal(mut stdo: &Stdout) -> Result<()> {
         stdo.queue(cursor::MoveTo(0, 0))?
-        .queue(terminal::Clear(terminal::ClearType::All))?
-        .flush()?;
+            .queue(terminal::Clear(terminal::ClearType::All))?
+            .flush()?;
         println!("");
         Ok(())
     }

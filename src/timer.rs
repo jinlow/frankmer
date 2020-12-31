@@ -1,6 +1,6 @@
-use crossterm::{Result};
+use crossterm::Result;
 use figlet_rs::FIGfont;
-use std::io::{stdout};
+use std::io::stdout;
 use std::{thread, time};
 use thread::sleep;
 
