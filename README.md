@@ -23,7 +23,7 @@ cargo install --git https://github.com/jinlow/frankmer.git --branch main
 
 ## API
 
-After installation, the easiest way to use the application is running `frankmer` in the terminal with the time shortcut commands. These should be passed as integer values, prefixed with either "h", "m", or "s" to specify the hours, minutes, or seconds to initialize the timer with. For example:
+After installation, the easiest way to use the application is running `frankmer` in the terminal with the time shortcut commands. These should be passed as integer values, suffixed with either "h", "m", or "s" to specify the hours, minutes, or seconds to initialize the timer with. For example:
 
 ```bash
 > frankmer 1h 10m 24s
